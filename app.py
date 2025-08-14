@@ -104,6 +104,7 @@ y_predicted = scaler.inverse_transform(y_predicted)         # shape (n,1)
 y_test = scaler.inverse_transform(y_test.reshape(-1,1))     # shape (n,1)
 
 # plot
+st.header("Stock Prediction vs Actual Data")
 fig, ax = plt.subplots(figsize=(12,6))
 ax.plot(y_test, "b", label="Original Price")
 ax.plot(y_predicted, "r", label="Predicted Price")
@@ -112,3 +113,4 @@ ax.set_ylabel("Price")
 ax.legend()
 
 st.pyplot(fig)
+
