@@ -1,4 +1,4 @@
-# shock-prediction-app
+# stock-prediction-app
 # Stock Price Prediction App 
 
 This project is a **Stock Price Prediction** tool built with **LSTM (Long Short-Term Memory) neural networks** in TensorFlow/Keras, and deployed using **Streamlit**.  
