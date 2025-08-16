@@ -17,7 +17,7 @@ except Exception as e:
     st.stop()
 
 start = "2010-06-01"
-ends = datetime.today() - timedelta(days=1)
+ends = datetime.today() #- timedelta(days=1)
 end = ends.strftime('%Y-%m-%d')
 
 st.title("Stock trend Prediction")
@@ -140,5 +140,6 @@ ax.set_xlabel("Days")
 ax.set_ylabel("Price")
 ax.legend()
 st.pyplot(fig)
+
 
 
