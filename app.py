@@ -30,7 +30,7 @@ except Exception as e:
     st.error(f"Data download failed: {e}")
     st.stop()
 
-st.subheader("Date from 2010 - 2019")
+st.subheader("Date from 2010 to yesterday")
 st.write(df.describe())
 
 st.subheader("Stock data")
@@ -118,7 +118,7 @@ st.pyplot(fig)
 #Prediction from 100 days
 da100 = df['Close'].tail(100)
 #scaler = MinMaxScaler(feature_range=(0,1))
-scaled100 = scaler.fit_transform(da100) 
+scaled100 = scaler.transform(da100.values.reshape(-1,1))
 x_input = np.array(scaled100).reshape(1, 100, 1) 
 try:
     pred_scaled = model.predict(x_input)
@@ -138,3 +138,4 @@ ax.set_xlabel("Days")
 ax.set_ylabel("Price")
 ax.legend()
 st.pyplot(fig)
+
