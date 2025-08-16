@@ -102,6 +102,8 @@ try:
 except Exception as e:
     st.error(f"model is not loading: {e}")
     st.stop()
+    
+scaler.scale_    
 y_predicted = scaler.inverse_transform(y_predicted)         
 y_test = scaler.inverse_transform(y_test.reshape(-1,1))     
 
@@ -118,7 +120,7 @@ st.pyplot(fig)
 #Prediction from 100 days
 da100 = df['Close'].tail(100)
 #scaler = MinMaxScaler(feature_range=(0,1))
-scaled100 = scaler.transform(da100.values.reshape(-1,1))
+scaled100 = scaler.scaler.fit_transform(da100) 
 x_input = np.array(scaled100).reshape(1, 100, 1) 
 try:
     pred_scaled = model.predict(x_input)
@@ -138,4 +140,5 @@ ax.set_xlabel("Days")
 ax.set_ylabel("Price")
 ax.legend()
 st.pyplot(fig)
+
 
