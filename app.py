@@ -40,6 +40,7 @@ st.write(df)
 st.subheader("Closing Price vs Time Chart")
 fig = plt.figure(figsize = (12,6))
 plt.plot(df.Close, "b")
+plt.legend()
 st.pyplot(fig)
 
 st.subheader("Closing Price vs Time Chart with 100 days mean")
@@ -47,6 +48,7 @@ ma100 = df.Close.rolling(100).mean()
 fig = plt.figure(figsize = (12,6))
 plt.plot(ma100, "r")
 plt.plot(df.Close,"b")
+plt.legend()
 st.pyplot(fig)
 
 st.subheader("Closing Price vs Time Chart with 100 & 200 days mean")
@@ -56,6 +58,7 @@ fig = plt.figure(figsize = (12,6))
 plt.plot(ma100,"r")
 plt.plot(ma200,"g")
 plt.plot(df.Close, "b")
+plt.legend()
 st.pyplot(fig)
 
 # training / testing split 
@@ -103,10 +106,8 @@ except Exception as e:
     st.error(f"model is not loading: {e}")
     st.stop()
     
-scaler.scale_    
-y_predicted = scaler.inverse_transform(y_predicted)         
-y_test = scaler.inverse_transform(y_test.reshape(-1,1))     
-
+y_predicted = scaler.inverse_transform(y_predicted.reshape(-1, 1))
+y_test = scaler.inverse_transform(y_test.reshape(-1, 1))
 # plot
 st.header("Stock Prediction vs Actual Data")
 fig, ax = plt.subplots(figsize=(12,6))
@@ -140,6 +141,7 @@ ax.set_xlabel("Days")
 ax.set_ylabel("Price")
 ax.legend()
 st.pyplot(fig)
+
 
 
 
