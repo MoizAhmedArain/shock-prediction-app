@@ -120,15 +120,15 @@ st.pyplot(fig)
 
 #Prediction from 100 days
 da100 = df['Close'].tail(100)
-#scaler = MinMaxScaler(feature_range=(0,1))
-scaled100 = scaler.fit_transform(da100) 
+scalers = MinMaxScaler(feature_range=(0,1))
+scaled100 = scalers.fit_transform(da100) 
 x_input = np.array(scaled100).reshape(1, 100, 1) 
 try:
     pred_scaled = model.predict(x_input)
 except Exception as e:
     st.error(f"model is not performing: {e}")
     st.stop()
-pred_price = scaler.inverse_transform(pred_scaled)
+pred_price = scalers.inverse_transform(pred_scaled)
 actual_prices = df["Close"].tail(100)
 all_prices = actual_prices + [pred_price[0][0]]
 
@@ -141,6 +141,7 @@ ax.set_xlabel("Days")
 ax.set_ylabel("Price")
 ax.legend()
 st.pyplot(fig)
+
 
 
 
