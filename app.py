@@ -11,7 +11,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dropout, Dense
 
 try:
-    model = load_model("keras_model.keras")
+    model = load_model("keras_model_v1.keras")
 except Exception as e:
     st.error(f"Model load failed: {e}")
     st.stop()
@@ -141,6 +141,7 @@ ax.set_xlabel("Days")
 ax.set_ylabel("Price")
 ax.legend()
 st.pyplot(fig)
+
 
 
 
